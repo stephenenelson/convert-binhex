@@ -1,6 +1,7 @@
 package Checker;
 
-@ISA = qw(Exporter);
+use Exporter 'import';
+
 @EXPORT = qw($CHECK okay_if note check filter_warnings);
 
 $Checker::OUTPUT = 1;
