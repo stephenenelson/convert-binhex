@@ -29,15 +29,18 @@ the BinHex file.
 Largely untested.
 
 
-=head1 AUTHOR
+=head1 AUTHORS
 
 Paul J. Schinder (NASA/GSFC) mostly, though Eryq can't seem to keep
 his grubby paws off anything...
 
+Sören M. Andersen (somian), made it actually work under Perl 5.8.7 on MSWin32.
 
 =cut
 
-use lib "./lib";
+my $The_OS;
+BEGIN { $The_OS = $^O ? $^O : q// }
+eval { require Mac::Files } if ($The_OS eq "MacOS");
 
 use Getopt::Std;				 
 use Convert::BinHex;
@@ -45,7 +48,6 @@ use POSIX;
 use Fcntl;
 use File::Basename;
 use Carp;
-require Mac::Files if ($^O||'' eq "MacOS");
 
 use strict;
 use vars qw(
@@ -82,8 +84,8 @@ sub usage {
     my $msg = shift || '';
     my $usage = '';
     if (open(USAGE, "<$0")) {
-        while ($_ = <USAGE> and !/^=head1 USAGE/) {};
-        while ($_ = <USAGE> and !/^=head1/) {$usage .= $_};
+        while (defined($_ = <USAGE>) and !/^=head1 USAGE/) {};
+        while (defined($_ = <USAGE>) and !/^=head1/) {$usage .= $_};
         close USAGE;
     }
     else {
@@ -107,6 +109,7 @@ sub debinhex {
 
     # Open BinHex file:
     open(BHEX,"<$inpath") || croak("Unable to open $inpath: $!");
+    binmode BHEX;
 
     # Create converter interface on stream:
     my $hqx = Convert::BinHex->open(FH => \*BHEX);
@@ -122,7 +125,7 @@ sub debinhex {
     my $outpath = "$outdir/$outname"; $outpath =~ s{/+}{/}g;
 
     # Create Mac file:
-    if ($^O||'' eq "MacOS") {
+    if ($The_OS eq "MacOS") {
         Mac::Files::FSpCreate($outpath, $hqx->creator, $hqx->type)
            or croak("Unable to create Mac file $outpath");
     }
@@ -133,7 +136,7 @@ sub debinhex {
 
     # Write data fork:
     print "Writing:     $outpath\n";
-    $fd = POSIX::open($outpath, (&POSIX::O_WRONLY | &POSIX::O_CREAT), 0755);
+    $fd = POSIX::open($outpath, (&POSIX::O_WRONLY | &POSIX::O_CREAT | &Fcntl::O_BINARY), 0755);
     $testlength = 0;
     while (defined($data = $hqx->read_data)) {
         $length = length($data);
@@ -151,13 +154,13 @@ sub debinhex {
 
 	# Determine how to open fork file appropriately:
 	my ($rpath, $rflags);
-        if (($^O||'') eq "MacOS") {
+        if ($The_OS eq "MacOS") {
 	    $rpath  = $outpath;
 	    $rflags = (&POSIX::O_WRONLY | &POSIX::O_CREAT | &Fcntl::O_RSRC);
         } 
 	else {
 	    $rpath  = "$outpath.rsrc";
-	    $rflags = (&POSIX::O_WRONLY | &POSIX::O_CREAT);
+	    $rflags = (&POSIX::O_WRONLY | &POSIX::O_CREAT | &Fcntl::O_BINARY);
         }	
 
 	# Write resource fork...
@@ -176,7 +179,7 @@ sub debinhex {
     }
 
     # Set Mac attributes:
-    if (($^O||'') eq "MacOS") {
+    if ($The_OS eq "MacOS") {
         my $has = Mac::Files::FSpGetCatInfo($outpath);
         my $finfo = $has->{ioFlFndrInfo};
         $finfo->{fdFlags}   = $hqx->flags & 0xfeff; #turn off inited bit
@@ -205,7 +208,5 @@ sub debinhex {
 }
 
 #------------------------------------------------------------
-1;
-
-
-
+__END__
+# Last modified: 16 Feb 2006 at 05:16 PM EST
