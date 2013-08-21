@@ -43,6 +43,7 @@ foreach $infile (@ARGV) {
     print STDERR "Writing $fname (data fork)\n";
     printf STDERR "Expecting: %6d bytes\n", $HQX->data_length    if $opt_v;
     open DATA, ">$fname" or die "open $fname: $!";
+    binmode DATA;
     while ($bytes = $HQX->read_data) {
 	print DATA $bytes;
     }
@@ -54,6 +55,7 @@ foreach $infile (@ARGV) {
     print STDERR "Writing $fname (resource fork)\n";
     printf STDERR "Expecting: %6d bytes\n", $HQX->resource_length    if $opt_v;
     open RESOURCE, ">$fname" or die "open $fname: $!";
+    binmode RESOURCE;
     while ($bytes = $HQX->read_resource) {
 	print RESOURCE $bytes;
     }
