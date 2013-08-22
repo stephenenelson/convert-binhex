@@ -144,6 +144,7 @@ an ASCII "alphabet".
 =cut
 
 use strict;
+use warnings;
 use vars qw(@ISA @EXPORT_OK $VERSION $QUIET);
 use integer;
 
@@ -160,7 +161,7 @@ use FileHandle;
 
 
 # The package version, both in 1.23 style *and* usable by MakeMaker:
-$VERSION = substr q$Revision: 1.119 $, 10;
+$VERSION = '1.120';
 
 # My identity:
 my $I = 'binhex:';
