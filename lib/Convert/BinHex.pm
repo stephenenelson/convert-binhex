@@ -1665,7 +1665,7 @@ programs, were provided by Paul J. Schinder (NASA/GSFC).
 Ken Lunde (Adobe) suggested incorporating the CAP file representation.
 
 
-=head1 TERMS AND CONDITIONS
+=head1 LICENSE
 
 Copyright (c) 1997 by Eryq.  All rights reserved.  This program is free
 software; you can redistribute it and/or modify it under the same terms as
