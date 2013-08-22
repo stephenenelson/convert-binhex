@@ -1,15 +1,11 @@
 COPYING
+Changes
 MANIFEST
 Makefile.PL
 README
 README-TOO
 bin/binhex.pl
 bin/debinhex.pl
-docs/Convert/BinHex.pm.html
-docs/Convert/BinHex/hqxred.gif
-docs/Convert/BinHex/redapple-sm.gif
-docs/Convert/BinHex/redapple-tiny.gif
-docs/Convert/BinHex/redapple.gif
 lib/Convert/BinHex.pm
 t/Checker.pm
 t/comp2bin.t
