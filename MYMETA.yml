@@ -1,14 +1,14 @@
 ---
 abstract: unknown
 author:
-  - unknown
+  - 'Eryq <eryq@enteract.com>'
 build_requires:
   ExtUtils::MakeMaker: 0
 configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 0
-generated_by: 'ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.120921, CPAN::Meta::Converter version 2.132140'
-license: unknown
+generated_by: 'ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.132140'
+license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -19,4 +19,4 @@ no_index:
     - inc
 requires:
   perl: 5.004000
-version: 1.119
+version: 1.120
