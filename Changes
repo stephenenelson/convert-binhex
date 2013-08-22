@@ -1,0 +1,23 @@
+* Version 1.118
+
+	- Ready to go public (with Paul's version, patched for native Mac support)!
+	- Warnings have been suppressed in a few places where undefined values
+appear.
+
+* Version 1.115
+
+	- Fixed another bug in comp2bin, related to the MARK falling on a
+boundary between inputs.  Added testing code.
+
+* Version 1.114:
+
+	- Added BIN-to-HEX conversion.  Eh.  It's a start.
+	- Also, a lot of documentation additions and cleanups.
+	- Some methods were also renamed.
+
+* Version 1.103:
+	- Fixed bug in decompression (wasn't saving last character).
+	- Fixed "NoComment" bug.
+
+* Version 1.102:
+	- Initial release.

@@ -1652,42 +1652,9 @@ a non-Mac system, you probably want to do this to the data:
     foreach ($HQX->read_data) { s/\r/\n/g; print }
 
 
-=head1 CHANGE LOG
-
-Current version: $Id: BinHex.pm,v 1.119 1997/06/28 05:12:42 eryq Exp $
-
-=over 4
-
-=item Version 1.118
-
-Ready to go public (with Paul's version, patched for native Mac support)!
-Warnings have been suppressed in a few places where undefined values
-appear.
-
-=item Version 1.115
-
-Fixed another bug in comp2bin, related to the MARK falling on a
-boundary between inputs.  Added testing code.
-
-=item Version 1.114
-
-Added BIN-to-HEX conversion.  Eh.  It's a start.
-Also, a lot of documentation additions and cleanups.
-Some methods were also renamed.
-
-=item Version 1.103
-
-Fixed bug in decompression (wasn't saving last character).
-Fixed "NoComment" bug.
-
-=item Version 1.102
-
-Initial release.
-
-=back
-
-
 =head1 AUTHOR AND CREDITS
+
+Maintained by Stephen Nelson <stephenenelson@mac.com>
 
 Written by Eryq, F<http://www.enteract.com/~eryq> / F<eryq@enteract.com>
 
