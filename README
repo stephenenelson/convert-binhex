@@ -84,10 +84,3 @@ DESCRIPTION
     streams. Ths module provides a means of converting those data streams
     back into into binary data.
 
-CHANGES
-  Version 1.118
-
-    Ready to go public (with Paul's version, patched for native Mac
-    support)! Warnings have been suppressed in a few places where undefined
-    values appear.
-
