@@ -2,6 +2,7 @@ Revision history for Perl module Convert::BinHex
 
 1.121 2013-08-23
     - Changes file reformatted thanks to Neil Bowers (NEILB)
+    - Moved to Dist::Zilla's OurPkgVersion for keeping $VERSIONs in sync
 
 1.120 2013-08-22
     - First CPAN release by Stephen Nelson (STEPHEN),

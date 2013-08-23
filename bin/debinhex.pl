@@ -38,6 +38,8 @@ Sören M. Andersen (somian), made it actually work under Perl 5.8.7 on MSWin32.
 
 =cut
 
+# VERSION
+
 my $The_OS;
 BEGIN { $The_OS = $^O ? $^O : q// }
 eval { require Mac::Files } if ($The_OS eq "MacOS");

@@ -45,6 +45,8 @@ use File::Basename;
 use Carp;
 require Mac::Files if (($^O||'') eq "MacOS");
 
+# VERSION
+
 use strict;
 use vars qw(
             $opt_o

@@ -160,8 +160,7 @@ use FileHandle;
 
 
 
-# The package version, both in 1.23 style *and* usable by MakeMaker:
-$VERSION = '1.120';
+# VERSION
 
 # My identity:
 my $I = 'binhex:';
