@@ -275,6 +275,9 @@ Converted to Perl5 by Eryq.
 sub binhex_crc {
     my $len = length($_[0]);
     my $crc = $_[1];
+    if (! defined $crc) {
+    	$crc = 0;
+    }
     my $i;
     for ($i = 0; $i < $len; $i++) {
 	my $ocrc = $crc;
