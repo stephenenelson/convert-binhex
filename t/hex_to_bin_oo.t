@@ -25,4 +25,8 @@ my $orig_data = read_file( $orig_file, { 'binmode' => ':raw' });
 eq_or_diff(join('', @data), $orig_data, 'data fork matches original');
 is_deeply(\@rsrc, [], 'resource fork is empty');
 
+is($hqx->filename(), 'eyeball.gif', 'filename is correct');
+is($hqx->type(), '????', 'type is correct');
+is($hqx->creator(), '????', 'creator is correct');
+
 done_testing();
