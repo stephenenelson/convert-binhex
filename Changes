@@ -1,6 +1,6 @@
 Revision history for Perl module Convert::BinHex
 
-{{$NEXT}}
+1.122 2013-08-25
     - Added unit tests for OO and CRC code
 
 1.121 2013-08-23
