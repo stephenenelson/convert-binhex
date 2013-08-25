@@ -1,9 +1,11 @@
-use lib "./blib/lib", "./lib", "./t";
+use strict;
+use warnings;
 
-use Checker;
+use Test::More;
+
 use Convert::BinHex;
 
-%TEST = (
+my %TEST = (
 	 PIVOT_3 => {
 	     COMP => ["90 00 01 02 03 04 00", 
 		      "90 00 03"],
@@ -59,27 +61,18 @@ sub str2hex {
 #------------------------------------------------------------
 # BEGIN
 #------------------------------------------------------------
-print "1..9\n";
-my $TESTKEY;
-foreach $TESTKEY (sort keys %TEST) {
+foreach my $TESTKEY (sort keys %TEST) {
     my $test = $TEST{$TESTKEY};
     my @comps = map { str2hex($_) } @{$test->{COMP}};
     my $bin  = str2hex($test->{BIN});
     
-    my $comp;
     my $rbin = '';
     my $H2B = Convert::BinHex->hex2bin;
-    foreach $comp (@comps) {
-	$rbin .= $H2B->comp2bin_next($comp);
+    foreach my $comp (@comps) {
+		$rbin .= $H2B->comp2bin_next($comp);
     }
-    check(($rbin eq $bin), "test $TESTKEY");
+    is($rbin, $bin, "test $TESTKEY");
 }
-1;
 
-
-
-
-
-
-
+done_testing();
 
