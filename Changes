@@ -1,5 +1,8 @@
 Revision history for Perl module Convert::BinHex
 
+{{$NEXT}}
+    - Added unit tests for OO and CRC code
+
 1.121 2013-08-23
     - Changes file reformatted thanks to Neil Bowers (NEILB)
     - Moved to Dist::Zilla's OurPkgVersion for keeping $VERSIONs in sync
