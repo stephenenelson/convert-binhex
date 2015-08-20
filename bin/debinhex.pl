@@ -35,7 +35,7 @@ Largely untested.
 Paul J. Schinder (NASA/GSFC) mostly, though Eryq can't seem to keep
 his grubby paws off anything...
 
-Sšren M. Andersen (somian), made it actually work under Perl 5.8.7 on MSWin32.
+SÃ¶ren M. Andersen (somian), made it actually work under Perl 5.8.7 on MSWin32.
 
 =cut
 
