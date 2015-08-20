@@ -1,6 +1,11 @@
 Revision history for Perl module Convert::BinHex
 
 {{$NEXT}}
+	- Changed debinhex to UTF-8
+	- Made the Test:: modules optional (ticket 101974, mishikal at yahoo.com)
+	- Fixed a manual typo (ticket 88874, gregoa at debian.org)
+
+1.123 2013-09-06
 	- Fixed pod error in debinhex and added pod tests
 
 1.122 2013-08-25
