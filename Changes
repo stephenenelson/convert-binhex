@@ -1,6 +1,7 @@
 Revision history for Perl module Convert::BinHex
 
 {{$NEXT}}
+	- Made the Test:: modules TEST_REQUIRES (ticket 108523, TODDR)
 
 1.124 2015-08-19
 	- Changed debinhex to UTF-8
