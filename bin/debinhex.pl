@@ -53,10 +53,8 @@ use File::Basename;
 use Carp;
 
 use strict;
-use vars qw(
-            $opt_o
-            $opt_v
-);
+
+our ($opt_o, $opt_v);
 
 my $DEBUG = 0;
 
