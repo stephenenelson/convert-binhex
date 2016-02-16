@@ -145,15 +145,16 @@ an ASCII "alphabet".
 
 use strict;
 use warnings;
-use vars qw(@ISA @EXPORT_OK $VERSION $QUIET);
 use integer;
 
 use Carp;
-use Exporter;
+require Exporter;
 use FileHandle;
 
-@ISA = qw(Exporter);
-@EXPORT_OK = qw(
+our ($VERSION, $QUIET);
+
+our @ISA = qw(Exporter);
+our @EXPORT_OK = qw(
 		macbinary_crc
 		binhex_crc
 		);
